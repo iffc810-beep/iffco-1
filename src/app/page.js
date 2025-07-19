@@ -263,7 +263,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="testimonials-section">
-        <h2 className="section-title">Customer's Reviews</h2>
+        <h2 className="section-title">Customer&apos;s Reviews</h2>
         <div className="testimonial-grid">
           <div className="testimonial-card">
             <Image
