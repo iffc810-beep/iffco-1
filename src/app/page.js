@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { FaMoneyBillWave, FaLeaf, FaChartLine, FaUsers, FaHandHoldingHeart } from 'react-icons/fa';
 import IffcoEcosystem from './components/Ifco.jsx';
@@ -8,52 +9,56 @@ export default function Home() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
 
- const sendEmail = async (e) => {
-  e.preventDefault();
-  setIsSending(true);
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
 
-  const formData = new FormData(form.current);
-  const data = Object.fromEntries(formData.entries());
+    const formData = new FormData(form.current);
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form data:', data);
 
-  try {
-    const res = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-    if (res.ok) {
-      alert('Application submitted successfully!');
-      form.current.reset();
-    } else {
-      alert('Failed to send application. Please try again.');
+      const result = await res.json();
+      if (res.ok) {
+        alert('Application submitted successfully!');
+        form.current.reset();
+      } else {
+        alert(result.message || 'Failed to send application. Please try again.');
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setIsSending(false);
     }
-  } catch (err) {
-    console.error(err);
-    alert('An error occurred. Please try again later.');
-  } finally {
-    setIsSending(false);
-  }
-};
-
+  };
 
   return (
-   <div className="home-container">
-  {/* Hero Section */}
-  <section className="hero-section">
-    <img 
-      src="/slide1.jpg" // update this path as needed
-      alt="IFFCO Fertiliser Banner"
-      className="hero-image"
-    />
-    <h1 className="hero-title">Join IFFCO as a Fertiliser Dealer</h1>
-    <p className="hero-text">
-      Partner with India’s leading cooperative to empower farmers with sustainable fertilisers for over 54 years.
-    </p>
-    <Link href="#apply">
-      <button className="cta-button">Apply Now</button>
-    </Link>
-  </section>
+    <div className="home-container">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <Image
+          src="/slide1.jpg"
+          alt="IFFCO Fertiliser Banner"
+          width={1200}
+          height={400}
+          className="hero-image"
+          priority
+        />
+        <h1 className="hero-title">Join IFFCO as a Fertiliser Dealer</h1>
+        <p className="hero-text">
+          Partner with India’s leading cooperative to empower farmers with sustainable fertilisers for over 54 years.
+        </p>
+        <Link href="#apply">
+          <button className="cta-button">Apply Now</button>
+        </Link>
+      </section>
 
       {/* Benefits Section */}
       <section className="benefits-section">
@@ -101,7 +106,8 @@ export default function Home() {
         </ul>
       </section>
 
-      <IffcoEcosystem/>
+      <IffcoEcosystem />
+
       {/* Eligibility and Documents Section */}
       <section className="eligibility-section">
         <h2 className="section-title">Eligibility and Documents Required</h2>
@@ -133,7 +139,7 @@ export default function Home() {
       </section>
 
       {/* Application Form */}
-      <section className="apply-section" id='apply'>
+      <section className="apply-section" id="apply">
         <h2 className="section-title">Apply to Become a Dealer</h2>
         <p className="text-content">
           Submit your application below. Ensure you have the required documents ready for upload.
@@ -234,7 +240,6 @@ export default function Home() {
               <option value="">Select Business Type</option>
               <option value="Retail">Dealership</option>
               <option value="Wholesale">Distributorship</option>
-            
             </select>
           </div>
           <div className="form-group">
@@ -256,31 +261,53 @@ export default function Home() {
         </form>
       </section>
 
-      {/* Testimonials Teaser */}
-      {/* Customer Reviews Section */}
-<section className="testimonials-section">
-  <h2 className="section-title">Customer's Reviews</h2>
-  <div className="testimonial-grid">
-    <div className="testimonial-card">
-      <img src="/rohit.jpg" alt="Rohit Bansal" className="reviewer-img" />
-      <blockquote className="testimonial">❝ I am very happy to choose IFFCO fertiliser for my new business. It is a well-known brand in the Indian market, so I have not faced any issues. Their products are of exceptional quality, and their support and service have been outstanding. I highly recommend IFFCO fertiliser for your new business. You won't be disappointed!</blockquote>
-      <p className="reviewer-name">Rohit Bansal<br /><span className="reviewer-role">Dealership</span></p>
-    </div>
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <h2 className="section-title">Customer's Reviews</h2>
+        <div className="testimonial-grid">
+          <div className="testimonial-card">
+            <Image
+              src="/rohit.jpg"
+              alt="Rohit Bansal"
+              width={100}
+              height={100}
+              className="reviewer-img"
+            />
+            <blockquote className="testimonial">
+              ❝ I am very happy to choose IFFCO fertiliser for my new business. It is a well-known brand in the Indian market, so I have not faced any issues. Their products are of exceptional quality, and their support and service have been outstanding. I highly recommend IFFCO fertiliser for your new business. You won&apos;t be disappointed! ❞
+            </blockquote>
+            <p className="reviewer-name">Rohit Bansal<br /><span className="reviewer-role">Dealership</span></p>
+          </div>
 
-    <div className="testimonial-card">
-      <img src="/jas.jpg" alt="Jaspreet Singh" className="reviewer-img" />
-      <blockquote className="testimonial">❝ IFFCO fertiliser has been a game-changer for my new venture. Their strong presence in the Indian market has brought credibility to my business. The high-quality fertilisers and excellent support make it easy to keep customers satisfied. If you're starting a business in agriculture, IFFCO is the way to go.</blockquote>
-      <p className="reviewer-name">Jaspreet Singh<br /><span className="reviewer-role">Dealership</span></p>
-    </div>
+          <div className="testimonial-card">
+            <Image
+              src="/jas.jpg"
+              alt="Jaspreet Singh"
+              width={100}
+              height={100}
+              className="reviewer-img"
+            />
+            <blockquote className="testimonial">
+              ❝ IFFCO fertiliser has been a game-changer for my new venture. Their strong presence in the Indian market has brought credibility to my business. The high-quality fertilisers and excellent support make it easy to keep customers satisfied. If you&apos;re starting a business in agriculture, IFFCO is the way to go. ❞
+            </blockquote>
+            <p className="reviewer-name">Jaspreet Singh<br /><span className="reviewer-role">Dealership</span></p>
+          </div>
 
-    <div className="testimonial-card">
-      <img src="/jog.jpg" alt="Joginder Prasad" className="reviewer-img" />
-      <blockquote className="testimonial">❝ Partnering with IFFCO fertiliser for my new business was an excellent decision. Their strong reputation in the Indian market ensures customer trust. The quality of their fertilisers is outstanding, and their customer service is prompt and helpful. I highly recommend IFFCO fertiliser to anyone starting an agricultural business.</blockquote>
-      <p className="reviewer-name">Joginder Prasad<br /><span className="reviewer-role">Dealership</span></p>
-    </div>
-  </div>
-</section>
-
+          <div className="testimonial-card">
+            <Image
+              src="/jog.jpg"
+              alt="Joginder Prasad"
+              width={100}
+              height={100}
+              className="reviewer-img"
+            />
+            <blockquote className="testimonial">
+              ❝ Partnering with IFFCO fertiliser for my new business was an excellent decision. Their strong reputation in the Indian market ensures customer trust. The quality of their fertilisers is outstanding, and their customer service is prompt and helpful. I highly recommend IFFCO fertiliser to anyone starting an agricultural business. ❞
+            </blockquote>
+            <p className="reviewer-name">Joginder Prasad<br /><span className="reviewer-role">Dealership</span></p>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action */}
       <section className="cta-section">
