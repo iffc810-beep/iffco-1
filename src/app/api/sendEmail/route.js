@@ -64,6 +64,7 @@ export async function POST(req) {
                   <!-- Header -->
                   <tr>
                     <td style="background-color: #004aad; padding: 20px; text-align: center;">
+                     <!-- eslint-disable-next-line @next/next/no-img-element -->
                       <img src="${process.env.DOMAIN_ADDRESS}/logo.svg" alt="IFFCO Logo" style="max-width: 150px; height: auto;" />
                       <h1 style="color: #ffffff; font-size: 24px; margin: 10px 0;">New Dealer Application</h1>
                     </td>
@@ -170,6 +171,7 @@ export async function POST(req) {
                   <!-- Header -->
                   <tr>
                     <td style="background-color: #004aad; padding: 20px; text-align: center;">
+                     <!-- eslint-disable-next-line @next/next/no-img-element -->
                       <img src="${process.env.DOMAIN_ADDRESS}/logo.svg" alt="IFFCO Logo" style="max-width: 150px; height: auto;" />
                       <h1 style="color: #ffffff; font-size: 24px; margin: 10px 0;">Application Received</h1>
                     </td>

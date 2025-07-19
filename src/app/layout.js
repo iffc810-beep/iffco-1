@@ -15,6 +15,6 @@ export default function RootLayout({ children }) {
 }
 
 export const metadata = {
-  title: 'My Fertiliser Website',
+  title: 'IFFCO Fertiliser Dealership',
   description: 'Join our cooperative to distribute high-quality fertilisers.',
 };
