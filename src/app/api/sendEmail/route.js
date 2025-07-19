@@ -1,17 +1,8 @@
 import nodemailer from 'nodemailer';
 
 export async function POST(request) {
-  console.log('Environment variables:', {
-    SMTP_HOST: process.env.SMTP_HOST,
-    SMTP_PORT: process.env.SMTP_PORT,
-    SMTP_USER: process.env.SMTP_USER,
-    SMTP_PASS: process.env.SMTP_PASS,
-    RECIPIENT_EMAIL: process.env.RECIPIENT_EMAIL,
-  });
-
   try {
     const body = await request.json();
-    console.log('Request body:', body);
 
     const {
       name,
