@@ -274,7 +274,7 @@ export default function Home() {
               className="reviewer-img"
             />
             <blockquote className="testimonial">
-              ❝ I am very happy to choose IFFCO fertiliser for my new business. It is a well-known brand in the Indian market, so I have not faced any issues. Their products are of exceptional quality, and their support and service have been outstanding. I highly recommend IFFCO fertiliser for your new business. You won&apos;t be disappointed! ❞
+              ❝ I am very happy to choose IFFCO fertiliser for my new business. It is a well-known brand in the Indian market, so I have not faced any issues. Their products are of exceptional quality, and their support and service have been outstanding. I highly recommend IFFCO fertiliser for your new business. You won't be disappointed! ❞
             </blockquote>
             <p className="reviewer-name">Rohit Bansal<br /><span className="reviewer-role">Dealership</span></p>
           </div>
@@ -288,7 +288,7 @@ export default function Home() {
               className="reviewer-img"
             />
             <blockquote className="testimonial">
-              ❝ IFFCO fertiliser has been a game-changer for my new venture. Their strong presence in the Indian market has brought credibility to my business. The high-quality fertilisers and excellent support make it easy to keep customers satisfied. If you&apos;re starting a business in agriculture, IFFCO is the way to go. ❞
+              ❝ IFFCO fertiliser has been a game-changer for my new venture. Their strong presence in the Indian market has brought credibility to my business. The high-quality fertilisers and excellent support make it easy to keep customers satisfied. If you're starting a business in agriculture, IFFCO is the way to go. ❞
             </blockquote>
             <p className="reviewer-name">Jaspreet Singh<br /><span className="reviewer-role">Dealership</span></p>
           </div>
