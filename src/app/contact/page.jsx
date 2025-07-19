@@ -1,36 +1,46 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import { useRouter } from 'next/navigation';
 
 export default function Contact() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
+  const router = useRouter();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID')
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert('Message sent successfully!');
-          form.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-          alert('Failed to send message. Please try again.');
-        }
-      )
-      .finally(() => setIsSending(false));
+    const formData = new FormData(form.current);
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form data:', data);
+
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        router.push('/thankYou?type=contact');
+      } else {
+        alert(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <section className="contact-section">
-      <h1 className="section-title">Contact Us</h1>
+      <h1 className="section-title">Customer's Reviews</h1>
       <p className="text-content">
-        Reach out to us with any inquiries about IFFCO fertiliser dealerships or other questions. We’re here to assist you!
+        Reach out to us with any inquiries about IFFCO fertiliser dealerships or other questions. We're here to assist you!
       </p>
       <form ref={form} onSubmit={sendEmail} className="contact-form">
         <div className="form-group">

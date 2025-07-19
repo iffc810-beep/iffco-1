@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-column">
             <h3 className="footer-title">Contact Us</h3>
-            <p>Email: info@fertilisercooperative.com</p>
-            <p>Phone: +91 123-456-7890</p>
-            <p>Address: 123 Agri Road, New Delhi, India</p>
+            <p>Email: leade@iffcobusiness.in</p>
+            {/* <p>Phone: +91 123-456-7890</p>
+            <p>Address: 123 Agri Road, New Delhi, India</p> */}
           </div>
           <div className="footer-column">
             <h3 className="footer-title">Quick Links</h3>
@@ -18,7 +18,6 @@ export default function Footer() {
               <li><Link href="/" className="footer-link">Home</Link></li>
               <li><Link href="/about" className="footer-link">About</Link></li>
               <li><Link href="/benefits" className="footer-link">Benefits</Link></li>
-              <li><Link href="/testimonials" className="footer-link">Testimonials</Link></li>
               <li><Link href="/contact" className="footer-link">Contact</Link></li>
             </ul>
           </div>
@@ -38,7 +37,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2025 Fertiliser Cooperative. All rights reserved.</p>
+          <p>© IFFCO. All rights reserved.</p>
           <p className="footer-disclaimer">
             Note: Beware of fraudulent dealership offers. Verify all opportunities through official channels.
           </p>

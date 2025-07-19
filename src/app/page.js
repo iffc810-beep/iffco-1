@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { FaMoneyBillWave, FaLeaf, FaChartLine, FaUsers, FaHandHoldingHeart } from 'react-icons/fa';
 import IffcoEcosystem from './components/Ifco.jsx';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
+   const router = useRouter();
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -26,8 +28,7 @@ export default function Home() {
 
       const result = await res.json();
       if (res.ok) {
-        alert('Application submitted successfully!');
-        form.current.reset();
+        router.push('/thankYou?type=dealer');
       } else {
         alert(result.message || 'Failed to send application. Please try again.');
       }
