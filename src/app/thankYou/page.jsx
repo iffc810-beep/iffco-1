@@ -10,7 +10,7 @@ export default function ThankYouPage() {
         <Image src="/logo.svg" alt="Logo" className={styles.logo} width={100} height={100} />
         <h1 className={styles.title}>Thank You!</h1>
         <p className={styles.message}>
-          We appreciate you contacting us. One of our team members will get back to you shortly.
+          We appreciate you contacting us.One of our team members will get back to you shortly.
         </p>
         <Link href="/" className={styles.button}>
           Go Back Home
