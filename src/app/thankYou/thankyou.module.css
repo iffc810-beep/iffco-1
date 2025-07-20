@@ -1,4 +1,3 @@
-/* app/thankyou/thankyou.module.css */
 .thankyouSection {
   min-height: 100vh;
   display: flex;
@@ -10,6 +9,7 @@
 
 .container {
   max-width: 600px;
+  width: 100%;
   text-align: center;
   background-color: #ffffff;
   padding: 40px;
@@ -18,10 +18,10 @@
 }
 
 .logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 20px;
   animation: fadeIn 1s ease-in-out;
-  width: 150px;
-  height: 150px;
-  margin-bottom: 1rem;
 }
 
 .title {
@@ -58,8 +58,14 @@
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 640px) {
