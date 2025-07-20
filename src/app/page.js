@@ -28,7 +28,7 @@ export default function Home() {
 
       const result = await res.json();
       if (res.ok) {
-        router.push('/thankyou');
+        router.push('/thanks');
       } else {
         alert(result.message || 'Failed to send application. Please try again.');
       }

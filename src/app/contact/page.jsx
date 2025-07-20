@@ -24,7 +24,7 @@ export default function Contact() {
 
       const result = await res.json();
       if (res.ok) {
-        router.push('/thankyou');
+        router.push('/thanks');
       } else {
         alert(result.message || 'Failed to send message. Please try again.');
       }
