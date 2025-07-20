@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-column">
             <h3 className="footer-title">Contact Us</h3>
-            <p>Email: leade@iffcobusiness.in</p>
-            {/* <p>Phone: +91 123-456-7890</p>
-            <p>Address: 123 Agri Road, New Delhi, India</p> */}
+            <p>Email: info@iffcobusiness.in</p>
+            <p>Helpline No: 01169652506</p>
+            <p>Address: IFFCO SADAN C-1, DISTT. CENTRE, SAKET PLACE, NEW DELHI - 110017</p>
           </div>
           <div className="footer-column">
             <h3 className="footer-title">Quick Links</h3>
@@ -19,6 +19,7 @@ export default function Footer() {
               <li><Link href="/about" className="footer-link">About</Link></li>
               <li><Link href="/benefits" className="footer-link">Benefits</Link></li>
               <li><Link href="/contact" className="footer-link">Contact</Link></li>
+              <li><Link href="/#apply" className="footer-link">Apply Form</Link></li>
             </ul>
           </div>
           <div className="footer-column">
