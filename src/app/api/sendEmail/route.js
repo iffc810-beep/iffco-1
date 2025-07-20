@@ -42,8 +42,7 @@ export async function POST(request) {
       adminEmailTemplate = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd;">
           <!-- eslint-disable-next-line @next/next/no-img-element -->
-          <img src="https://iffcobusiness.in/logo.svg" alt="IFFCO Logo" style="max-width: 150px; height: auto;" />
-          <h2 style="color: #2e7d32;">New Dealer Application</h2>
+                   <h2 style="color: #2e7d32;">New Dealer Application</h2>
           <p>A new application has been submitted for an IFFCO fertiliser dealership. Below are the details:</p>
           <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Name</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${name}</td></tr>
@@ -66,7 +65,6 @@ export async function POST(request) {
       adminEmailTemplate = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd;">
           <!-- eslint-disable-next-line @next/next/no-img-element -->
-          <img src="https://iffcobusiness.in/logo.svg" alt="IFFCO Logo" style="max-width: 150px; height: auto;" />
           <h2 style="color: #2e7d32;">New Contact Form Submission</h2>
           <p>A new message has been submitted via the contact form. Below are the details:</p>
           <table style="width: 100%; border-collapse: collapse;">
@@ -86,7 +84,6 @@ export async function POST(request) {
       userEmailTemplate = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd;">
           <!-- eslint-disable-next-line @next/next/no-img-element -->
-          <img src="https://iffcobusiness.in/logo.svg" alt="IFFCO Logo" style="max-width: 150px; height: auto;" />
           <h2 style="color: #2e7d32;">Thank You for Your Application</h2>
           <p>Dear ${name},</p>
           <p>We have successfully received your application to become an IFFCO fertiliser dealer. Below are the details you submitted:</p>
@@ -111,7 +108,6 @@ export async function POST(request) {
       userEmailTemplate = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd;">
           <!-- eslint-disable-next-line @next/next/no-img-element -->
-          <img src="https://iffcobusiness.in/logo.svg" alt="IFFCO Logo" style="max-width: 150px; height: auto;" />
           <h2 style="color: #2e7d32;">Thank You for Your Message</h2>
           <p>Dear ${name},</p>
           <p>We have successfully received your message via the contact form. Below are the details you submitted:</p>
@@ -127,7 +123,7 @@ export async function POST(request) {
     }
 
     await transporter.sendMail({
-      from: `"IFFCO Fertiliser" <${process.env.SMTP_USER}>`,
+      from:email,
       to: safeRecipientEmail,
       subject: isDealerApplication ? 'New Dealer Application Submission' : 'New Contact Form Submission',
       html: adminEmailTemplate,
