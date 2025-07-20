@@ -1,3 +1,4 @@
+/* app/thankyou/thankyou.module.css */
 .thankyouSection {
   min-height: 100vh;
   display: flex;
@@ -18,6 +19,9 @@
 
 .logo {
   animation: fadeIn 1s ease-in-out;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
 }
 
 .title {
