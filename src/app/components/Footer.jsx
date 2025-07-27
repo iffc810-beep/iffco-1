@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-column">
             <h3 className="footer-title">Contact Us</h3>
-            <p>Email: info@iffcobusiness.in</p>
+            <p>Email: info@iffco-business.in</p>
             <p>Helpline No: 01169652506</p>
             <p>Address: IFFCO SADAN C-1, DISTT. CENTRE, SAKET PLACE, NEW DELHI - 110017</p>
           </div>
